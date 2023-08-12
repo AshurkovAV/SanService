@@ -29,7 +29,6 @@ namespace SanService.Controllers
             _config = config;
         }
 
-
         [ApiKeyAuth("sid", Access = AccessLevel.Admin)]
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginDto request)
