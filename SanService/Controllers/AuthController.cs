@@ -1,17 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SanatoriumCore.Secure;
-using SanatoriumEntities.Entities;
-using SanatoriumEntities.Models.Services;
 using SanService.Infrastructure;
 using SanService.Models;
 using SanService.Services;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -32,14 +27,14 @@ namespace SanService.Controllers
         [ApiKeyAuth("sid", Access = AccessLevel.Admin)]
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginDto request)
-        {          
+        {
 
-            
+
             var userVeri = _userservice.LoginUser(request.Username, request.Password);
 
             if (!userVeri.Success)
             {
-                return Unauthorized();                
+                return Unauthorized();
             }
 
             //generate token
@@ -50,7 +45,7 @@ namespace SanService.Controllers
                 Subject = new ClaimsIdentity(new Claim[]{
                     new Claim(ClaimTypes.Name, userVeri.Data.FirstName.ToString()),
                     new Claim(ClaimTypes.Surname, userVeri.Data.LastName.ToString()),
-                    new Claim(ClaimTypes.Role, userVeri.Data.RoleID.ToString()),                    
+                    new Claim(ClaimTypes.Role, userVeri.Data.RoleID.ToString()),
                     new Claim(ClaimTypes.GivenName, userVeri.Data.Patronymic.ToString()),
                     new Claim(ClaimTypes.Sid, userVeri.Data.SessionID.ToString()),
                     new Claim(ClaimTypes.NameIdentifier, userVeri.Data.EmployeeId.ToString()),

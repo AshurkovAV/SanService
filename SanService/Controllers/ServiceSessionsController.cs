@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SanatoriumEntities.Entities;
 using SanatoriumEntities.Models.Services;
 using SanatoriumEntities.ServicesClasses;
+using System;
+using System.Linq;
+using System.Security.Claims;
 
 namespace SanService.Controllers
 {
@@ -30,7 +28,7 @@ namespace SanService.Controllers
                 {
                     completedEmployeeId = Convert.ToInt32(emplId.Value);
                 }
-                
+
                 if (orderResult == null || orderResult.id == 0 || orderResult.id == null)
                 {
                     return NoContent();
@@ -61,7 +59,7 @@ namespace SanService.Controllers
             {
                 return NotFound();
             }
-           
+
         }
     }
 }

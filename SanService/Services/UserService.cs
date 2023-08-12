@@ -1,20 +1,17 @@
-﻿using SanatoriumEntities.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SanatoriumEntities.Models.User;
-using SanatoriumCore.Helpers;
+﻿using SanatoriumCore.Helpers;
 using SanatoriumCore.Infrastructure;
 using SanatoriumCore.Secure;
+using SanatoriumEntities.Entities;
 using SanatoriumEntities.Models.Services;
+using SanatoriumEntities.Models.User;
+using System;
+using System.Linq;
 
 namespace SanService.Services
 {
     public class UserService
     {
         private SimpleEntity<LocalUser> _userResources = new SimpleEntity<LocalUser>();
-        private SimpleEntity<EmployeeResource> _simpleEntityEmp = new SimpleEntity<EmployeeResource>();
         private SimpleEntity<EmployeeBinding> _simpleEntityBin = new SimpleEntity<EmployeeBinding>();
         private SimpleEntity<GeneralEmployeeItem> _simpleEntityEmpGen = new SimpleEntity<GeneralEmployeeItem>();
 
@@ -43,9 +40,9 @@ namespace SanService.Services
                     var sid = Convert.ToBase64String(CryptoHelpers.CreateRandom(32));
                     user.SessionID = sid;
                     var resultUser = _userResources.update(user);
-                   
+
                     AuthorizedUserRepository.AddUser(sid, user);
-                    
+
                     result.Data = user;
                     return result;
                 }
@@ -53,7 +50,7 @@ namespace SanService.Services
                 {
                     result.AddError("Логин или пароль введены неверно");
                 }
-            }           
+            }
             catch (Exception exception)
             {
                 result.AddError(exception.Message);
@@ -69,7 +66,6 @@ namespace SanService.Services
             var result = new TransactionResult<GeneralEmployeeItem>();
             try
             {
-
                 var user = _simpleEntityBin.selectList($"employee_id = {empid}").FirstOrDefault();
                 var empGen = _simpleEntityEmpGen.selectList($"id = {user.employee_general_id}").FirstOrDefault();
 
