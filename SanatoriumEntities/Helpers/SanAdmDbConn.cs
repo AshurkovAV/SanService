@@ -86,8 +86,6 @@ namespace SanatoriumEntities.Helpers
 
         public static string getConnectionString()
         {
-
-
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
             builder.UserID = "sa";
