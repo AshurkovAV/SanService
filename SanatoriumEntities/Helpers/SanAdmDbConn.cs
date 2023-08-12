@@ -79,6 +79,7 @@ namespace SanatoriumEntities.Helpers
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Connection.Open();
+                 
 
                 return command.ExecuteScalar();
             }
