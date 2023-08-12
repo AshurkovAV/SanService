@@ -35,6 +35,7 @@ namespace SanService.Controllers.Services
         {
             try
             {
+
                 var idint = Convert.ToInt32(id);
                 var item = _employeesResources.select(idint);
                 if (item == null || item.id == null)
