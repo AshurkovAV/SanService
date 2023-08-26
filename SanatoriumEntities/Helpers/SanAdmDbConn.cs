@@ -6,7 +6,7 @@ namespace SanatoriumEntities.Helpers
 {
     public class SanAdmDbConn
     {
-        public const string DB_NAME = "san_administration";
+        public const string DB_NAME = "san1";
 
         public static int sqlQuery(string queryString)
         {
@@ -91,8 +91,8 @@ namespace SanatoriumEntities.Helpers
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
             builder.UserID = "sa";
-            builder.Password = "Hospital6";
-            builder.DataSource = @"192.168.10.2\sqlexpress";
+            builder.Password = "12345678";
+            builder.DataSource = @".\sqlexpress";
             builder.InitialCatalog = DB_NAME;
             builder.MinPoolSize = 9;
 
