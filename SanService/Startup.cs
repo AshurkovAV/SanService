@@ -51,7 +51,7 @@ namespace SanService
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    // валидация ключа безопасности
+                    // валидация ключа безопасности 
                     ValidateIssuerSigningKey = true,
                     // установка ключа безопасности
                     IssuerSigningKey = new SymmetricSecurityKey(key),
