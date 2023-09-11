@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanatoriumEntities", "Sanat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanatoriumCore", "SanatoriumCore\SanatoriumCore.csproj", "{1A4B09AE-FD94-4342-9521-802E5A4A0CF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanApp", "SanApp\SanApp.csproj", "{BD8A00AC-E91F-4607-894B-B21519602D9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanApp", "SanApp\SanApp.csproj", "{BD8A00AC-E91F-4607-894B-B21519602D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

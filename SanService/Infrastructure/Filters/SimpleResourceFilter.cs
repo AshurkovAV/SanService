@@ -24,7 +24,7 @@ namespace SanService.Infrastructure.Filters
                 {
                     var IsAuthenticated = context.HttpContext.User.Identity.IsAuthenticated;
                     var claimsIndentity = context.HttpContext.User.Identity as ClaimsIdentity;
-                    if (context.HttpContext.Request.Path == "/auth/Login")
+                    if (context.HttpContext.Request.Path == "/auth/Login" || context.HttpContext.Request.Path == "/Authorization/Index")
                     { return; }
                     if (!IsAuthenticated)
                     {
@@ -55,8 +55,7 @@ namespace SanService.Infrastructure.Filters
             catch (Exception ex)
             {
                 context.HttpContext.Response.StatusCode = 401;
-                context.Result = new ObjectResult(HttpStatusCode.Unauthorized);
-                return;
+                context.Result = new ObjectResult(HttpStatusCode.Unauthorized);                
             }                      
         }  
     }

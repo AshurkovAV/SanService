@@ -29,12 +29,10 @@ namespace SanService.Controllers
             _config = config;
         }
 
-        [ApiKeyAuth("sid", Access = AccessLevel.Admin)]
+        //[ApiKeyAuth("sid", Access = AccessLevel.Admin)]
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginDto request)
-        {          
-
-            
+        {   
             var userVeri = _userservice.LoginUser(request.Username, request.Password);
 
             if (!userVeri.Success)

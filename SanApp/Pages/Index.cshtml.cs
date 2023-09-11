@@ -16,5 +16,10 @@ namespace SanApp.Pages
         {
 
         }
+
+        public void OnPostJS()
+        {
+            this.RedirectToPage();
+        }
     }
 }
