@@ -13,6 +13,9 @@ builder.Services.AddRazorPages(options =>
     //options.Conventions.AddPageRoute("/Authorization/Index", "");
 });
 
+// добавление сервисов аутентификации
+builder.Services.AddAuthentication("Bearer")  // схема аутентификации - с помощью jwt-токенов
+    .AddJwtBearer();      // подключение аутентификации с помощью jwt-токенов
 
 builder.Services.ConfigureApplicationCookie(configure: config => config.LoginPath = "/Login");
 
