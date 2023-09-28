@@ -16,8 +16,7 @@ namespace SanService.Controllers
     [Route("[controller]")]
     public class EmployeesProceduresController : ControllerBase
     {
-        private SimpleEntity<EmployeesProceduresList> _simpleEntity = new SimpleEntity<EmployeesProceduresList>();
-        UserService _userservice = new UserService();
+        private SimpleEntity<EmployeesProceduresList> _simpleEntity = new SimpleEntity<EmployeesProceduresList>();        
 
         [HttpGet, Route("data")]
         public IActionResult GetRegisterExecuted(int id, int empid, DateTime dt)

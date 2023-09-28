@@ -37,7 +37,7 @@ namespace SanService
                         //    new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
                         //options.Limits.MinResponseDataRate =
                         //    new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
-                        options.Listen(IPAddress.Parse("192.168.10.7"), 5001);
+                        options.Listen(IPAddress.Parse("192.168.88.149"), 5001);
                     });
                 });
     }

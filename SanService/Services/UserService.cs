@@ -1,8 +1,6 @@
 ﻿using SanatoriumEntities.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SanatoriumEntities.Models.User;
 using SanatoriumCore.Helpers;
 using SanatoriumCore.Infrastructure;
@@ -13,9 +11,8 @@ namespace SanService.Services
 {
     public class UserService
     {
-        private SimpleEntity<LocalUser> _userResources = new SimpleEntity<LocalUser>();
-        private SimpleEntity<EmployeeResource> _simpleEntityEmp = new SimpleEntity<EmployeeResource>();
-        private SimpleEntity<EmployeeBinding> _simpleEntityBin = new SimpleEntity<EmployeeBinding>();
+        private SimpleEntity<LocalUser>           _userResources = new SimpleEntity<LocalUser>();
+        private SimpleEntity<EmployeeBinding>     _simpleEntityBin = new SimpleEntity<EmployeeBinding>();
         private SimpleEntity<GeneralEmployeeItem> _simpleEntityEmpGen = new SimpleEntity<GeneralEmployeeItem>();
 
         public string ErrorMessage { get; private set; }

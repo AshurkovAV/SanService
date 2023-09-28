@@ -38,6 +38,12 @@ namespace SanService
                 // альтернативный вариант подключения
                 //options.Filters.Add(new SimpleResourceFilter()); // подключение по объекту
             });
+            
+            services.AddRazorPages().AddMvcOptions(options =>
+            {
+                options.Filters.Add(new SimpleResourceFilter());    // подключение по объекту
+                //options.Filters.Add(typeof(SimpleResourceFilter)); // подключение по типу
+            });
 
             services.AddControllers();
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
@@ -45,7 +51,7 @@ namespace SanService
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    // валидация ключа безопасности
+                    // валидация ключа безопасности 
                     ValidateIssuerSigningKey = true,
                     // установка ключа безопасности
                     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -56,8 +62,6 @@ namespace SanService
                 };
             });
         }
-
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
