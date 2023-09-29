@@ -17,15 +17,11 @@ namespace SanAppWeb.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            return Content(User.Identity.Name);
+            return View();
+            //return Content(User.Identity.Name);
         }
 
-        //public IActionResult Autorization()
-        //{
-            
-        //    return View();
-        //}
-
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();

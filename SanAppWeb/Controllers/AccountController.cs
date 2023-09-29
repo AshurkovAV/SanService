@@ -26,7 +26,7 @@ namespace SanAppWeb.Controllers
                 if (user.Success)
                 {
                     await Authenticate(model.Username); // аутентификация
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Privacy", "Home");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }   
