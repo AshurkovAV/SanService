@@ -38,7 +38,7 @@ namespace SanatoriumEntities.Helpers.SQL
 
             if (isHardDelete && !isRestore) {
                 return $"DELETE FROM {this.table}"
-                    + $" WHERE {ID_FIELD} IN ({String.Join(",", ids)})"
+                    + $" WHERE {ID_FIELD} IN ({String.Join(",", ids)})" 
                     + $" AND {STATUS}={conditionStatus}";
             }
 
